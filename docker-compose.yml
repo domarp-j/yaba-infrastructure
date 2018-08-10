@@ -7,7 +7,8 @@ services:
     build: ../yaba-rails-server
     command: bundle exec rails s -p 3001 -b '0.0.0.0'
     volumes:
-      - ../yaba-rails-server
+      - ../yaba-rails-server:/app
+    working_dir: /app
     ports:
       - "3001:3001"
     depends_on:
@@ -15,13 +16,13 @@ services:
     env_file:
       - env.list
   react-client:
-    build:
-      context: ../yaba-react-client
-      dockerfile: Dockerfile
+    build: ../yaba-react-client
     command: npm start
     volumes:
-      - ../yaba-react-client
+      - ../yaba-react-client:/app
+    working_dir: /app
     ports:
       - "3000:3000"
     env_file:
       - env.list
+
