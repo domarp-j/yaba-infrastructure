@@ -1,0 +1,27 @@
+
+version: '3'
+services:
+  db:
+    image: postgres
+  rails-server:
+    build: ../yaba-rails-server
+    command: bundle exec rails s -p 3001 -b '0.0.0.0'
+    volumes:
+      - ../yaba-rails-server
+    ports:
+      - "3001:3001"
+    depends_on:
+      - db
+    env_file:
+      - env.list
+  react-client:
+    build:
+      context: ../yaba-react-client
+      dockerfile: Dockerfile
+    command: npm start
+    volumes:
+      - ../yaba-react-client
+    ports:
+      - "3000:3000"
+    env_file:
+      - env.list
