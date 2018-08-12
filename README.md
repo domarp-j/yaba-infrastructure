@@ -1,4 +1,4 @@
-# Yaba Infrastructure
+# yaba (Yet Another Budget App) - Infrastructure
 
 This service sets up yaba (Yet Another Budget App) for local development. It sets up and manages the following apps:
 - [yaba-rails-server](https://github.com/domarp-j/yaba-rails-server)
@@ -6,10 +6,10 @@ This service sets up yaba (Yet Another Budget App) for local development. It set
 
 ## Setup
 
-Run `./setup.sh` from within this repository. The following will happen:
-- The apps above will be cloned into directories alongside `yaba-infrastructure`
-- Docker images will be built for the apps
-- Some extra setup steps will run depending on the app (database migrations, library installations, etc)
-
-Once the setup step is complete, run `docker-compose up` from within the `yaba-infrastructure` repository, and you'll be good to go!
+1. Create a new directory that will store all yaba apps, including `yaba-infrastructure`
+2. Run `./setup.sh` from within this repository, which does the following:
+  - Clones the apps above into directories alongside `yaba-infrastructure`
+  - Builds the Docker images for each app
+  - Runs some extra setup steps for each app (database migrations, library installations, etc)
+3. Run `docker-compose up` from within the `yaba-infrastructure` repository, and you'll be good to go!
 
